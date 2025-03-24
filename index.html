@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de IPs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de IPs</h1>
+
+        <!-- Contenedor para seleccionar la tienda -->
+        <div class="form-group">
+            <label for="store">Seleccionar Tienda:</label>
+            <select id="store" class="form-control" onchange="loadIPs()">
+                <option value="all">Todas las Tiendas</option>
+                <option value="F622">F622</option>
+                <option value="D423">D423</option>
+                <option value="MERCADO">MERCADO</option>
+                <option value="I810">I810</option>
+                <option value="TULTITLAN">TULTITLAN</option>
+                <option value="TLANEPANTLA">TLANEPANTLA</option>
+                <option value="D80">D80</option>
+                <option value="H56">H56</option>
+                <option value="CHALCO">CHALCO</option>
+                <option value="ROI TULA">ROI TULA</option>
+            </select>
+        </div>
+
+        <!-- Contenedor para seleccionar el origen de la IP (CAJA, VENTAS, etc.) -->
+        <div class="form-group">
+            <label for="ipSource">Origen de la IP:</label>
+            <select id="ipSource" class="form-control">
+                <option value="CAJA">CAJA</option>
+                <option value="JEFE DE TIENDA">JEFE DE TIENDA</option>
+                <option value="VENTAS1">VENTAS1</option>
+                <option value="VENTAS2">VENTAS2</option>
+                <option value="VENTAS3">VENTAS3</option>
+                <option value="VENTAS4">VENTAS4</option>
+                <option value="VENTAS5">VENTAS5</option>
+            </select>
+        </div>
+
+        <!-- Campos para modelo y clave de artículo -->
+        <div class="form-group">
+            <label for="model">Modelo:</label>
+            <input type="text" id="model" class="form-control" placeholder="Ingrese el modelo">
+        </div>
+
+        <div class="form-group">
+            <label for="articleKey">Clave de Artículo:</label>
+            <input type="text" id="articleKey" class="form-control" placeholder="Ingrese la clave de artículo">
+        </div>
+
+        <!-- Formulario para agregar IP -->
+        <div class="form-group">
+            <label for="ip">IP:</label>
+            <input type="text" id="ip" class="form-control" placeholder="Ingrese la IP">
+        </div>
+
+        <button class="button" onclick="addIP()">Agregar IP</button>
+        <button class="button-secondary" onclick="clearForm()">Limpiar</button>
+
+        <!-- Tabla para mostrar las IPs -->
+        <h2>Lista de IPs</h2>
+        <table id="ipTable">
+            <thead>
+                <tr>
+                    <th>Tienda</th>
+                    <th>IP</th>
+                    <th>Origen</th>
+                    <th>Modelo</th>
+                    <th>Clave de Artículo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Las IPs se cargarán aquí -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
