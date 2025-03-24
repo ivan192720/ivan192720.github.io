@@ -1,5 +1,5 @@
 // Inicializamos un array de objetos para almacenar las IPs por tienda
-let ipDatabase = {
+let ipDatabase = JSON.parse(localStorage.getItem('ipDatabase')) || {
     "F622": [],
     "D423": [],
     "MERCADO": [],
@@ -30,6 +30,13 @@ function addIP() {
         return;
     }
 
+    // Validar el formato de la IP
+    const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+    if (!ipRegex.test(ip)) {
+        alert("La IP ingresada no tiene un formato válido.");
+        return;
+    }
+
     // Si estamos editando una IP, la modificamos
     if (editIndex !== -1) {
         ipDatabase[store][editIndex] = { ip, ipSource, model, articleKey };
@@ -40,6 +47,9 @@ function addIP() {
         ipDatabase[store].push({ ip, ipSource, model, articleKey });
         alert("IP agregada correctamente!");
     }
+
+    // Guardar los datos en el almacenamiento local
+    localStorage.setItem('ipDatabase', JSON.stringify(ipDatabase));
 
     // Limpiar el formulario
     clearForm();
@@ -87,7 +97,7 @@ function loadIPs() {
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Eliminar";
         deleteButton.classList.add("button-danger");
-        deleteButton.onclick = () => deleteIP(entry.store, entry.ip);
+        deleteButton.onclick = () => confirmDelete(entry.store, entry.ip);
         actionCell.appendChild(deleteButton);
 
         // Acción para modificar la IP
@@ -99,12 +109,20 @@ function loadIPs() {
     });
 }
 
+// Función para confirmar la eliminación de una IP
+function confirmDelete(store, ip) {
+    if (confirm("¿Estás seguro de que deseas eliminar esta IP?")) {
+        deleteIP(store, ip);
+    }
+}
+
 // Función para eliminar una IP
 function deleteIP(store, ip) {
     const index = ipDatabase[store].findIndex(entry => entry.ip === ip);
     if (index !== -1) {
         ipDatabase[store].splice(index, 1);
         alert("IP eliminada correctamente!");
+        localStorage.setItem('ipDatabase', JSON.stringify(ipDatabase));
         loadIPs();
     }
 }
