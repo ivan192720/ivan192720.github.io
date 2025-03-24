@@ -11,7 +11,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'your_password',
-    database: 'gestionar_ips'
+    database: 'gestionar_ips.sql'
 });
 
 // Conectar a la base de datos
