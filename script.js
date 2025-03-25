@@ -147,3 +147,6 @@ function clearForm() {
     document.getElementById("ipSource").value = "CAJA";  // Restablecer origen a "CAJA"
     loadIPs();  // Actualizar la tabla
 }
+
+// Cargar las IPs automáticamente al cargar la página
+document.addEventListener('DOMContentLoaded', loadIPs);

@@ -1,0 +1,189 @@
+/* Estilo general */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #EAEAEA;  /* Fondo gris suave */
+    margin: 0;
+    padding: 0;
+    height: 100vh;  /* Altura de la página completa */
+    display: flex;
+    justify-content: center;  /* Centra horizontalmente */
+    align-items: center;  /* Centra verticalmente */
+    flex-direction: column;
+    overflow: hidden;  /* Evita que se desborde el contenido */
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 700px;  /* Reducir el tamaño máximo del contenedor */
+    background-color: #ffffff;
+    padding: 25px;  /* Reducir el padding */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  /* Sombra más sutil */
+    text-align: center;
+    margin-top: 10px;  /* Espacio superior reducido */
+    overflow-y: auto;  /* Permite desplazamiento si el contenido excede */
+}
+
+/* Título principal */
+h1 {
+    color: #FF5733;  /* Naranja vibrante */
+    font-size: 2em;  /* Tamaño más pequeño */
+    margin-bottom: 15px;  /* Reducir espacio debajo del título */
+    font-weight: bold;
+}
+
+/* Estilo de los campos del formulario */
+.form-group {
+    margin-bottom: 10px;  /* Reducir el margen entre los elementos */
+}
+
+label {
+    font-size: 1em;  /* Reducir el tamaño de la fuente */
+    color: #333;
+    margin-bottom: 5px;  /* Reducir el espacio debajo de la etiqueta */
+    display: block;
+    text-align: left;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 8px;  /* Reducir el padding */
+    font-size: 0.95em;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #F1F1F1;  /* Fondo gris claro */
+    margin-top: 5px;  /* Reducir espacio entre la etiqueta y el campo */
+    margin-bottom: 10px;  /* Reducir espacio debajo del campo */
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, select:focus {
+    border-color: #FF5733;  /* Color de borde naranja brillante */
+    outline: none;
+    background-color: #FFF8F2;  /* Fondo más claro al enfocar */
+}
+
+/* Botones */
+button {
+    padding: 8px 16px;  /* Reducir el padding */
+    font-size: 0.85em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;  /* Reducir el espacio entre los botones */
+    margin-bottom: 30px;  /* Reducir el espacio debajo del botón */
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.button {
+    background-color: #FF5733;  /* Naranja brillante */
+    color: white;
+}
+
+.button-secondary {
+    background-color: #34B6B4;  /* Turquesa suave */
+    color: white;
+    border: 1px solid #ddd;
+}
+
+.button-danger {
+    background-color: #F44336;  /* Rojo vibrante */
+    color: white;
+}
+
+.button-edit {
+    background-color: #FFC107;  /* Amarillo cálido */
+    color: white;
+}
+
+/* Estilo para las listas horizontales */
+ul {
+    display: flex;  /* Activamos el modelo de flexbox */
+    flex-wrap: wrap;  /* Asegura que los elementos se envuelvan si no caben */
+    justify-content: center;  /* Centra los elementos horizontalmente */
+    padding: 0;
+    list-style-type: none;
+    margin-bottom: 10px;  /* Reducir el margen inferior */
+    max-height: 200px;  /* Limitar la altura máxima de las listas */
+    overflow-y: auto;  /* Permite desplazamiento vertical si el contenido excede */
+}
+
+ul li {
+    margin: 5px 8px;  /* Reducir la separación entre los elementos de la lista */
+    padding: 5px 10px;  /* Reducir el padding */
+    background-color: #FF5733;  /* Naranja brillante */
+    color: white;
+    font-size: 0.9em;  /* Reducir el tamaño de la fuente */
+    border-radius: 8px;  /* Bordes redondeados más pequeños */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+ul li:hover {
+    background-color: #C0392B;  /* Naranja más oscuro al pasar el cursor */
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    margin-bottom: 20px;  /* Reducir el margen inferior de la tabla */
+}
+
+th, td {
+    padding: 8px 12px;  /* Reducir el padding */
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 0.95em;  /* Reducir el tamaño de la fuente */
+}
+
+th {
+    background-color: #34B6B4;  /* Turquesa suave */
+    color: white;
+}
+
+td {
+    background-color: #F9F9F9;
+}
+
+/* Reducir el espacio entre los botones Eliminar y Modificar */
+td button {
+    margin-right: 5px;  /* Reducir el margen entre los botones */
+    margin-bottom: 5px; /* Reducir el espacio debajo de los botones */
+    padding: 6px 12px; /* Ajuste de padding para hacer los botones más pequeños */
+}
+
+
+/* Estilo para las filas alternadas */
+tr:nth-child(even) {
+    background-color: #F2F2F2;
+}
+
+/* Diseño responsivo */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    table {
+        font-size: 1em;
+    }
+    
+    input[type="text"], select {
+        font-size: 1em;
+        padding: 10px;
+    }
+    
+    button {
+        font-size: 1em;
+        width: 100%;
+    }
+}
